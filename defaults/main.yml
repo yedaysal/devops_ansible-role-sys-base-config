@@ -1,0 +1,4 @@
+---
+# defaults file for devops_ansible-role-system-configuration
+system_max_use: 2G
+max_retention_time: 10d

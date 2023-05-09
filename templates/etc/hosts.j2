@@ -1,0 +1,116 @@
+## Manual entries
+
+{#
+### temp
+85.111.99.146       es146       # tt: esenyurt demo
+### aws
+18.212.169.223      aws223
+#}
+
+### umitkoy
+172.16.49.40        um040.lan
+172.16.49.41        um041.lan
+172.16.49.195       um208.lan   win208.lan
+172.16.49.196       um209.lan   win209.lan
+172.16.49.210       um210.lan
+172.16.49.211       um211.lan
+172.16.49.212       um212.lan
+172.16.49.213       um213.lan
+172.16.49.214       um214.lan
+85.111.4.40         um040
+85.111.4.41         um041
+85.111.4.208        um208       win208
+85.111.4.209        um209       win209
+85.111.4.210        um210
+85.111.4.211        um211
+85.111.4.212        um212
+85.111.4.213        um213
+85.111.4.214        um214
+
+### bursa
+10.150.20.202       b1.lan
+10.150.20.203       bu203.lan
+10.150.20.204       bu204.lan
+10.150.20.205       bu205.lan
+10.150.20.206       bu206.lan
+10.150.20.210       b2.lan
+10.150.20.211       bu211.lan
+10.150.20.212       bu212.lan
+10.150.20.213       bu213.lan
+10.150.20.214       bu214.lan
+10.150.20.218       b3.lan
+10.150.20.219       bu219.lan
+10.150.20.220       bu220.lan
+10.150.20.221       bu221.lan
+10.150.20.222       bu222.lan
+10.150.21.1         bu301         bu301.lan
+10.150.21.2         bu302         bu302.lan
+10.150.21.3         bu303         bu303.lan
+10.150.21.4         bu304         bu304.lan
+109.236.48.202      b1            infra-b1.akakce.net
+109.236.48.203      bu203         wg3         wg3.pub     wg3.akakce.net
+109.236.48.204      bu204 
+109.236.48.205      bu205 
+109.236.48.206      bu206 
+109.236.48.210      b2            infra-b2.akakce.net
+109.236.48.211      bu211 
+109.236.48.212      bu212 
+109.236.48.213      bu213 
+109.236.48.214      bu214 
+109.236.48.218      b3            infra-b3.akakce.net
+109.236.48.219      bu219 
+109.236.48.220      bu220 
+109.236.48.221      bu221 
+109.236.48.222      bu222 
+194.62.52.111       v1            infra-v1.akakce.com
+
+### odtu
+78.186.15.234       rb1           robot1
+85.105.26.146       inet4         downloader
+95.9.177.84         rb3           robot3
+95.9.177.92         rb5           robot5
+95.9.177.95         rb2           robot2
+178.251.45.163      m1.pub
+178.251.45.163      inet2         yazilim
+178.251.45.210      inet1         bili
+178.251.45.79       inet3         imager
+
+192.168.1.11        wg1           wg1.lan
+192.168.1.12        wg2           wg2.lan
+192.168.1.100       win100
+192.168.1.101       win101
+192.168.1.171       t1            t1.lan
+192.168.1.172       t2            t2.lan
+192.168.1.173       o3            o3.lan
+192.168.1.174       o4            o4.lan
+192.168.1.175       o5            o5.lan
+192.168.1.180       t0            t0.lan
+192.168.1.181       o1            o1.lan
+192.168.1.182       o2            o2.lan
+192.168.1.183       od183         od183.lan
+192.168.1.184       od184         od184.lan
+192.168.1.185       m1            m1.lan
+192.168.1.186       m2            m2.lan
+192.168.1.190       win190
+192.168.1.191       win191
+192.168.1.192       win192
+192.168.1.193       win193        raw  
+192.168.1.194       win194        dom      Dombili
+192.168.1.195       win195        mat      MatchBili
+192.168.1.196       win196        kid      BiliKid
+192.168.1.197       win197        jr       BiliJR
+
+{#
+ # Automatically generated entries from ansible inventory
+ # - https://gist.github.com/rothgar/8793800
+ # - https://www.middlewareinventory.com/blog/ansible-update-etc-hosts-file-across-all-hosts/
+ # - https://www.middlewareinventory.com/blog/ansible-get-ip-address/
+ # TODO: Sadece play içerisinde ele alınan hostlar için işlem yapılıyor dolayısıyla --limit kullanılması durumunda olması gereken dosya bozuluyor.
+ # {% for item in ansible_play_batch %}
+ # {% for item in ansible_play_hosts_all %}
+ 
+{% for item in ansible_play_hosts_all %}
+{% set short_name = item.split('.') %}
+{{ hostvars[item].ansible_default_ipv4.address }}        {{ item }}        {{ short_name[0] }}
+{% endfor %} 
+ #}
